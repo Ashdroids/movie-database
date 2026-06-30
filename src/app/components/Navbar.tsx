@@ -4,7 +4,9 @@ import styles from "./Navbar.module.css";
 export default function Navbar() {
   return (
     <nav className={styles.navbar}>
-      <h1 className={styles.logo}>MovieDB</h1>
+      <Link href="/" className={styles.logo}>
+  MovieDB
+</Link>
 
       <ul className={styles.navLinks}>
         <li>
