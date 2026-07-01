@@ -24,11 +24,40 @@ export default async function MoviePage({
         height={525}
       />
 
-      <div>
-        <h1>{movie.title}</h1>
+        <div className={styles.info}>
+            <h1>{movie.title}</h1>
 
-        <p>{movie.overview}</p>
-      </div>
+            <p>
+                <strong>Release:</strong> {movie.release_date}
+            </p>
+
+            <p>
+                <strong>Runtime:</strong> {movie.runtime} minutes
+            </p>
+
+            <p>
+                <strong>Rating:</strong> {movie.vote_average.toFixed(1)}/10
+            </p>
+
+            <p>
+                <strong>Genres:</strong>{" "}
+                {movie.genres.map((genre: any) => genre.name).join(", ")}
+            </p>
+
+            <h2>Overview</h2>
+
+            <p>{movie.overview}</p>
+
+            <h2>Cast</h2>
+
+            <ul>
+            {movie.credits.cast.slice(0, 8).map((actor: any) => (
+                <li key={actor.id}>
+                {actor.name} as {actor.character}
+                </li>
+            ))}
+            </ul>
+        </div>
     </main>
   );
 }
