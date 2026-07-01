@@ -1,4 +1,4 @@
-import styles from "@/app/page.module.css";
+import styles from "./page.module.css";
 import { searchMovies } from "@/lib/tmdb";
 import MovieGrid from "@/components/MovieGrid";
 
