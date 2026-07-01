@@ -42,10 +42,16 @@ export default async function SearchPage({
 
         <button type="submit">Search</button>
       </form>
+
+      {!q && <p>Search for a movie above.</p>}
       
       <div className={styles.gridWrapper}>
         {movies.length > 0 && <MovieGrid movies={movies} />}
       </div>
+
+      {q && movies.length === 0 && (
+        <p>No movies found for "{q}".</p>
+      )}
      
     </>
   );
