@@ -31,3 +31,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 - Using Next's Link component as it allows user-side navigation without full page reloads.
 - API key and read access token securely stored in .env.local for security 
+- tmbd.ts helper created to keep all tmbd related code in one place and stay clean when more functions are added (search, top rated etc)
+- Usin a dynamic route for movie page (movie/[id]) so whatever appears after movie/ become the id parameter
+- Using append_to_response=credits in getMovieDetails to combine them in to 1 request as it's more efficient (usually need 2 API requests: /movie/550 & /movie/550/credits)
