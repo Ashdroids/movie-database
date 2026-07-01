@@ -1,3 +1,4 @@
+import styles from "@/app/page.module.css";
 import { searchMovies } from "@/lib/tmdb";
 import MovieGrid from "@/components/MovieGrid";
 
@@ -42,7 +43,9 @@ export default async function SearchPage({
         <button type="submit">Search</button>
       </form>
       
-      {movies.length > 0 && <MovieGrid movies={movies} />}
+      <div className={styles.gridWrapper}>
+        {movies.length > 0 && <MovieGrid movies={movies} />}
+      </div>
      
     </>
   );
