@@ -14,3 +14,21 @@ export async function getPopularMovies() {
 
   return response.json();
 }
+
+export async function searchMovies(query: string) {
+  const response = await fetch(
+    `${BASE_URL}/search/movie?query=${encodeURIComponent(query)}`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.TMDB_READ_ACCESS_TOKEN}`,
+        accept: "application/json",
+      },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to search movies.");
+  }
+
+  return response.json();
+}
