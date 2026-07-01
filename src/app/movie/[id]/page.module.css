@@ -1,0 +1,22 @@
+.container {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.info h1 {
+  margin-bottom: 1rem;
+}
+
+.info p {
+  margin-bottom: 1rem;
+}
+
+.info h2 {
+  margin: 2rem 0 1rem;
+}
+
+.info ul {
+  padding-left: 1.2rem;
+}
