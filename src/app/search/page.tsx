@@ -32,15 +32,20 @@ export default async function SearchPage({
     <>
       <h1>Search Movies</h1>
 
-      <form>
+      <form className={styles.searchForm}>
         <input
           type="text"
           name="q"
           defaultValue={q}
           placeholder="Search for a movie..."
+          className={styles.searchInput}
         />
 
-        <button type="submit">Search</button>
+        <button type="submit"
+         className={styles.searchButton}
+         >
+          Search
+        </button>
       </form>
 
       {!q && <p>Search for a movie above.</p>}
