@@ -16,8 +16,8 @@ export default function MovieCard({
       <Image
         src={poster}
         alt={`${title} poster`}
-        width={300}
-        height={450}
+        width={350}
+        height={350}
         className={styles.poster}
       />
 
