@@ -1,37 +1,30 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import MovieGrid from "@/components/MovieGrid";
+import { getPopularMovies } from "@/lib/tmdb";
 
 
-const movies = [
-  {
-    id: 1,
-    title: "The Dark Knight",
-    releaseYear: "2008",
-    poster: "https://placehold.co/300x450",
-  },
-  {
-    id: 2,
-    title: "Inception",
-    releaseYear: "2010",
-    poster: "https://placehold.co/300x450",
-  },
-  {
-    id: 3,
-    title: "Interstellar",
-    releaseYear: "2014",
-    poster: "https://placehold.co/300x450",
-  },
-];
+export default async function Home() {
+  const data = await getPopularMovies();
 
+  console.log(data);
 
-export default function Home() {
+  const movies = data.results.map((movie: any) => ({
+  id: movie.id,
+  title: movie.title,
+  releaseYear: movie.release_date.slice(0, 4),
+  poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+}));
+
   return (
-    <main>
+    <main> 
       <h1>Movie Database</h1>
       <p>Popular Movies:</p>
 
-      <MovieGrid movies={movies} />
+      <div className={styles.gridWrapper}>
+        <MovieGrid movies={movies} />
+      </div>
     </main>
   );
 }
+
