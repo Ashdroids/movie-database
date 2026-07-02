@@ -35,3 +35,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Usin a dynamic route for movie page (movie/[id]) so whatever appears after movie/ become the id parameter
 - Using append_to_response=credits in getMovieDetails to combine them in to 1 request as it's more efficient (usually need 2 API requests: /movie/550 & /movie/550/credits)
 - As movie/[id]/page.tsx began to contain a lot of code, I decided to create MovieDetails and CastList components to keep the page.tsx clean and more readable and allow for better growth and reusability.
+- eslint recommended specifying a type rather than using any so I defined a proper type for things link MovieDetails, Genre & cast member. This allows Type Script benefits such as autocomplete and compile-time error checking. As a future improvement I will do the same for TMBDMovie (the response from TMDB API)

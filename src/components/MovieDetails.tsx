@@ -2,8 +2,31 @@ import Image from "next/image";
 import CastList from "./CastList";
 import styles from "@/app/movie/[id]/page.module.css";
 
+export type MovieDetails = {
+  id: number;
+  title: string;
+  overview: string;
+  poster_path: string;
+  runtime: number;
+  release_date: string;
+  vote_average: number;
+  genres: { id: number; name: string }[];
+  credits: {
+    cast: {
+      id: number;
+      name: string;
+      character: string;
+    }[];
+  };
+};
+
+export type Genre = {
+  id: number;
+  name: string;
+};
+
 type Props = {
-  movie: any;
+  movie: MovieDetails;
 };
 
 export default function MovieDetails({ movie }: Props) {
@@ -33,7 +56,7 @@ export default function MovieDetails({ movie }: Props) {
 
         <p>
           <strong>Genres:</strong>{" "}
-          {movie.genres.map((genre: any) => genre.name).join(", ")}
+          {movie.genres.map((genre: Genre) => genre.name).join(", ")}
         </p>
 
         <h2>Overview</h2>

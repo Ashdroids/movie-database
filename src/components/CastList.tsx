@@ -1,5 +1,11 @@
+export type CastMember = {
+  id: number;
+  name: string;
+  character: string;
+};
+
 type Props = {
-  cast: any[];
+  cast: CastMember[];
 };
 
 export default function CastList({ cast }: Props) {
