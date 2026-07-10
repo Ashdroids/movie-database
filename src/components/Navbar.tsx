@@ -21,6 +21,9 @@ export default function Navbar() {
         <li>
           <Link href="/profile">Profile</Link>
         </li>
+        <li>
+          <Link href="/signup">Sign Up</Link>
+        </li>
       </ul>
     </nav>
   );
