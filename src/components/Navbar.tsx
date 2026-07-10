@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./Navbar.module.css";
+import LogoutButton from "./LogoutButton";
 
 export default function Navbar() {
   return (
@@ -23,6 +24,12 @@ export default function Navbar() {
         </li>
         <li>
           <Link href="/signup">Sign Up</Link>
+        </li>
+        <li>
+          <Link href="/login">Login</Link>
+        </li>
+        <li>
+          <button>Logout</button>
         </li>
       </ul>
     </nav>
