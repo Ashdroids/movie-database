@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 import MovieGrid from "@/components/MovieGrid";
 import { getPopularMovies } from "@/lib/tmdb";

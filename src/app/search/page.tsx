@@ -50,10 +50,8 @@ export default async function SearchPage({
 
       {!q && <p>Search for a movie above.</p>}
       
-      <div className={styles.gridWrapper}>
-        {movies.length > 0 && <MovieGrid movies={movies} />}
-      </div>
-
+      {movies.length > 0 && <MovieGrid movies={movies} />}
+      
       {q && movies.length === 0 && (
         <p>No movies found for "{q}".</p>
       )}

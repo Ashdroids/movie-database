@@ -37,3 +37,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - As movie/[id]/page.tsx began to contain a lot of code, I decided to create MovieDetails and CastList components to keep the page.tsx clean and more readable and allow for better growth and reusability.
 - eslint recommended specifying a type rather than using any so I defined a proper type for things link MovieDetails, Genre & cast member. This allows Type Script benefits such as autocomplete and compile-time error checking. As a future improvement I will do the same for TMBDMovie (the response from TMDB API)
 - I chose supabase over firebase primarily because I haven't used it before so I wanted to become familiar with it, but also because upon researching I found the relational database model fits well with the project eg User id, movie id, rating.
+- email confirmation turned off in supabase for ease of project but would be turned on if put live
