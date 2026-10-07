@@ -1,12 +1,6 @@
 import MovieCard from "./MovieCard";
 import styles from "./MovieGrid.module.css";
-
-type Movie = {
-  id: number;
-  title: string;
-  releaseYear: string;
-  poster: string;
-};
+import type { Movie } from "@/types/movie";
 
 type MovieGridProps = {
   movies: Movie[];
