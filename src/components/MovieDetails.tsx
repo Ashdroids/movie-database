@@ -50,12 +50,14 @@ export default function MovieDetails({
         <h1>{movie.title}</h1>
 
         {isLoggedIn && (
-          <FavouriteButton
-            movieId={movie.id}
-            title={movie.title}
-            posterPath={movie.poster_path}
-            initialIsFavourite={isFavourite}
-          />
+          <div className={styles.favouriteButton}>
+            <FavouriteButton
+              movieId={movie.id}
+              title={movie.title}
+              posterPath={movie.poster_path}
+              initialIsFavourite={isFavourite}
+            />
+          </div>
         )}
 
         <p>
