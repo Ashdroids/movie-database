@@ -32,9 +32,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Using Next's Link component as it allows user-side navigation without full page reloads.
 - API key and read access token securely stored in .env.local for security 
 - tmbd.ts helper created to keep all tmbd related code in one place and stay clean when more functions are added (search, top rated etc)
-- Usin a dynamic route for movie page (movie/[id]) so whatever appears after movie/ become the id parameter
+- Usin a dynamic route for movie page (movie/[id]) so whatever appears after movie/ becomes the id parameter
 - Using append_to_response=credits in getMovieDetails to combine them in to 1 request as it's more efficient (usually need 2 API requests: /movie/550 & /movie/550/credits)
 - As movie/[id]/page.tsx began to contain a lot of code, I decided to create MovieDetails and CastList components to keep the page.tsx clean and more readable and allow for better growth and reusability.
 - eslint recommended specifying a type rather than using any so I defined a proper type for things link MovieDetails, Genre & cast member. This allows Type Script benefits such as autocomplete and compile-time error checking. As a future improvement I will do the same for TMBDMovie (the response from TMDB API)
 - I chose supabase over firebase primarily because I haven't used it before so I wanted to become familiar with it, but also because upon researching I found the relational database model fits well with the project eg User id, movie id, rating.
-- email confirmation turned off in supabase for ease of project but would be turned on if put live
+- Email confirmation turned off in supabase for ease of project but would be turned on if put live
+- Protect Profile & favourites (pages that require an account) server side rather than relying on UI to hide the links (When more protected pages are added, I'll look at adding getCurrentUser()/requireUser helpers).
+- Store user's favourites as a row on supabase using row level security (RLS) so users can only see/change their own favourites. Also filter by user ID in FavouriteButton.tsx to be safe.
+- 

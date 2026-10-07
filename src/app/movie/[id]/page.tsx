@@ -1,5 +1,6 @@
 import { getMovieDetails } from "@/lib/tmdb";
 import MovieDetails from "@/components/MovieDetails";
+import { createClient } from "@/lib/supabase/server";
 
 type MoviePageProps = {
   params: Promise<{
@@ -14,5 +15,30 @@ export default async function MoviePage({
 
   const movie = await getMovieDetails(id);
 
-  return <MovieDetails movie={movie} />;
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  let isFavourite = false;
+
+  if (user) {
+    const { data } = await supabase
+      .from("favourites")
+      .select("id")
+      .eq("user_id", user.id)
+      .eq("movie_id", movie.id)
+      .maybeSingle();
+
+    isFavourite = !!data;
+  }
+
+  return (
+    <MovieDetails
+      movie={movie}
+      isFavourite={isFavourite}
+      isLoggedIn={!!user}
+    />
+  );
 }
