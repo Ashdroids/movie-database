@@ -20,9 +20,8 @@ export default async function Home() {
       <h1>Movie Database</h1>
       <p>Popular Movies:</p>
 
-      <div className={styles.gridWrapper}>
-        <MovieGrid movies={movies} />
-      </div>
+      <MovieGrid movies={movies} />
+      
     </main>
   );
 }

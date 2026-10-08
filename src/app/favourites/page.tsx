@@ -46,7 +46,7 @@ export default async function FavouritesPage() {
       {movies.length === 0 ? (
         <p>You haven't added any favourite movies yet.</p>
       ) : (
-        <MovieGrid movies={movies} />
+          <MovieGrid movies={movies} />
       )}
     </main>
   );

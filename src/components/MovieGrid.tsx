@@ -8,16 +8,18 @@ type MovieGridProps = {
 
 export default function MovieGrid({ movies }: MovieGridProps) {
   return (
-    <section className={styles.grid}>
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          id={movie.id}
-          title={movie.title}
-          releaseYear={movie.releaseYear}
-          poster={movie.poster}
-        />
-      ))}
-    </section>
+    <div className={styles.gridWrapper}>
+      <section className={styles.grid}>
+        {movies.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            releaseYear={movie.releaseYear}
+            poster={movie.poster}
+          />
+        ))}
+      </section>
+    </div>
   );
 }
