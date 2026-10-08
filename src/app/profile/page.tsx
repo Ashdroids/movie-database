@@ -14,6 +14,11 @@ export default async function ProfilePage() {
     redirect("/login");
   }
 
+  const { count: favouriteCount } = await supabase
+    .from("favourites")
+    .select("*", { count: "exact", head: true })
+    .eq("user_id", user.id);
+
   return (
     <main className={styles.container}>
       <h1>Profile</h1>
@@ -28,6 +33,18 @@ export default async function ProfilePage() {
         <p>
           <strong>Member since:</strong>{" "}
           {new Date(user.created_at).toLocaleDateString("en-GB")}
+        </p>
+      </section>
+
+      <section className={styles.section}>
+        <h2>Activity</h2>
+
+        <p>
+          <strong>Favourite movies:</strong> {favouriteCount ?? 0}
+        </p>
+
+        <p>
+          <strong>Movies rated:</strong> 0
         </p>
       </section>
 
