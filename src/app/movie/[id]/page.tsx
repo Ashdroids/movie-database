@@ -34,11 +34,25 @@ export default async function MoviePage({
     isFavourite = !!data;
   }
 
+  let userRating: number | null = null;
+
+if (user) {
+  const { data: ratingData } = await supabase
+    .from("ratings")
+    .select("rating")
+    .eq("user_id", user.id)
+    .eq("movie_id", movie.id)
+    .maybeSingle();
+
+  userRating = ratingData?.rating ?? null;
+}
+
   return (
     <MovieDetails
       movie={movie}
       isFavourite={isFavourite}
       isLoggedIn={!!user}
+      userRating={userRating}
     />
   );
 }

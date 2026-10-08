@@ -40,4 +40,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Email confirmation turned off in supabase for ease of project but would be turned on if put live
 - Protect Profile & favourites (pages that require an account) server side rather than relying on UI to hide the links (When more protected pages are added, I'll look at adding getCurrentUser()/requireUser helpers).
 - Store user's favourites as a row on supabase using row level security (RLS) so users can only see/change their own favourites. Also filter by user ID in FavouriteButton.tsx to be safe.
-- 
+- .select("*", { count: "exact", head: true }) asks supabase formatching rows (number of favourited movies) without downloading them

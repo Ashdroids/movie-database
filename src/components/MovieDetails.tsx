@@ -1,6 +1,7 @@
 import Image from "next/image";
 import CastList from "./CastList";
 import FavouriteButton from "./FavouriteButton";
+import RatingButton from "./RatingButton";
 import styles from "@/app/movie/[id]/page.module.css";
 
 export type MovieDetails = {
@@ -30,12 +31,14 @@ type Props = {
   movie: MovieDetails;
   isFavourite: boolean;
   isLoggedIn: boolean;
+  userRating: number | null;
 };
 
 export default function MovieDetails({
   movie,
   isFavourite,
   isLoggedIn,
+  userRating,
 }: Props) {
   return (
     <main className={styles.container}>
@@ -50,14 +53,21 @@ export default function MovieDetails({
         <h1>{movie.title}</h1>
 
         {isLoggedIn && (
-          <div className={styles.favouriteButton}>
-            <FavouriteButton
+          <>
+            <div className={styles.favouriteButton}>
+              <FavouriteButton
+                movieId={movie.id}
+                title={movie.title}
+                posterPath={movie.poster_path}
+                initialIsFavourite={isFavourite}
+              />
+            </div>
+
+            <RatingButton
               movieId={movie.id}
-              title={movie.title}
-              posterPath={movie.poster_path}
-              initialIsFavourite={isFavourite}
+              initialRating={userRating}
             />
-          </div>
+          </>
         )}
 
         <p>
