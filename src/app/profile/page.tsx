@@ -19,6 +19,12 @@ export default async function ProfilePage() {
     .select("*", { count: "exact", head: true })
     .eq("user_id", user.id);
 
+    const { count: ratingCount } = await supabase
+      .from("ratings")
+      .select("*", { count: "exact", head: true })
+      .eq("user_id", user.id);
+
+
   return (
     <main className={styles.container}>
       <h1>Profile</h1>
@@ -44,7 +50,7 @@ export default async function ProfilePage() {
         </p>
 
         <p>
-          <strong>Movies rated:</strong> 0
+          <strong>Movies rated:</strong> {ratingCount ?? 0}
         </p>
       </section>
 
