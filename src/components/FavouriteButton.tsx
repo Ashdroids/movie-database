@@ -1,5 +1,6 @@
 "use client";
 
+import styles from "./FavouriteButton.module.css";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
@@ -70,11 +71,24 @@ export default function FavouriteButton({
   return (
     <button
       type="button"
+      className={`${styles.button} ${
+        isFavourite ? styles.favourited : ""
+      } ${isLoading ? styles.loading : ""}`}
       onClick={handleFavourite}
       disabled={isLoading}
       aria-pressed={isFavourite}
     >
-      {isFavourite ? "♥ Remove from favourites" : "♡ Add to favourites"}
+      <span className={styles.heart} aria-hidden="true">
+        {isFavourite ? "♥" : "♡"}
+      </span>
+
+      <span>
+        {isLoading
+          ? "Saving..."
+          : isFavourite
+            ? "Remove from favourites"
+            : "Add to favourites"}
+      </span>
     </button>
   );
 }

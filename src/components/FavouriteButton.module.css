@@ -1,0 +1,89 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #333;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: #e05270;
+  background-color: #fff0f3;
+  box-shadow: 0 3px 10px rgb(224 82 112 / 15%);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.button:focus-visible {
+  outline: 2px solid #e05270;
+  outline-offset: 3px;
+}
+
+.favourited {
+  border-color: #e05270;
+  background-color: #e05270;
+  color: #fff;
+}
+
+.favourited:hover:not(:disabled) {
+  border-color: #c83d5b;
+  background-color: #c83d5b;
+  color: #fff;
+}
+
+.heart {
+  display: inline-block;
+  flex-shrink: 0;
+  color: #e05270;
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.button:hover:not(:disabled) .heart {
+  transform: scale(1.15);
+}
+
+.favourited .heart {
+  color: #fff;
+}
+
+.button > span {
+  display: inline-block;
+}
+
+.loading {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .heart {
+    transition: none;
+  }
+}

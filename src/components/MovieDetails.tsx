@@ -54,7 +54,7 @@ export default function MovieDetails({
 
         {isLoggedIn && (
           <>
-            <div className={styles.favouriteButton}>
+            <div>
               <FavouriteButton
                 movieId={movie.id}
                 title={movie.title}
