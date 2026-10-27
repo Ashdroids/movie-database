@@ -1,5 +1,6 @@
 "use client";
 
+import styles from "./RatingButton.module.css";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
@@ -52,25 +53,34 @@ export default function RatingButton({
   }
 
   return (
-    <div>
-      <p>Your rating</p>
+  <div className={styles.rating}>
+    <p className={styles.label}>Your rating</p>
 
-      <div>
-        {[1, 2, 3, 4, 5].map((star) => (
-          <button
-            key={star}
-            type="button"
-            onClick={() => handleRating(star)}
-            disabled={isLoading}
-            aria-label={`Rate ${star} out of 5`}
-            aria-pressed={rating === star}
-          >
-            {rating !== null && star <= rating ? "★" : "☆"}
-          </button>
-        ))}
-      </div>
-
-      {rating !== null && <p>You rated this {rating}/5</p>}
+    <div className={styles.stars}>
+      {[1, 2, 3, 4, 5].map((star) => (
+        <button
+          key={star}
+          type="button"
+          className={`${styles.star} ${
+            rating !== null && star <= rating
+              ? styles.selected
+              : ""
+          }`}
+          onClick={() => handleRating(star)}
+          disabled={isLoading}
+          aria-label={`Rate ${star} out of 5`}
+          aria-pressed={rating === star}
+        >
+          {rating !== null && star <= rating ? "★" : "☆"}
+        </button>
+      ))}
     </div>
-  );
+
+    {rating !== null && (
+      <p className={styles.ratingText}>
+        You rated this {rating}/5
+      </p>
+    )}
+  </div>
+);
 }
