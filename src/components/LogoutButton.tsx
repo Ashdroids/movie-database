@@ -1,5 +1,6 @@
 "use client";
 
+import styles from "./LogoutButton.module.css";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 
@@ -14,5 +15,12 @@ export default function LogoutButton() {
     router.refresh();
   }
 
-  return <button onClick={handleLogout}>Logout</button>;
+  return (
+    <button
+      onClick={handleLogout}
+      className={styles.logoutButton}
+    >
+      Logout
+    </button>
+  );
 }

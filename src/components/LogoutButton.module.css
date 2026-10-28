@@ -1,0 +1,19 @@
+.logoutButton {
+    padding: 0.4rem 0.6rem;
+    background: transparent;
+    color: inherit;
+    border: none;
+    border-radius: 6px;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    background-color: rgb(255 255 255 / 8%);
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+.logoutButton:hover {
+    background-color: rgba(78, 71, 71, 0.08);
+    color: #f5c518;
+    outline: 2px solid currentColor;
+}
