@@ -1,9 +1,62 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.container h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.subtitle {
+  color: #a0a0a0;
+  margin-bottom: 2rem;
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+.section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.activityGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.card {
+  padding: 1.25rem;
+  border: 1px solid #333;
+  border-radius: 10px;
+  background-color: #1c1c1c;
+}
+
+.card p {
+  margin: 0.5rem 0;
+}
+
+.card h3 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+.count {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.description {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 500px) {
+  .activityGrid {
+  grid-template-columns: 1fr;
   }
-  
-  .section {
-    margin-top: 2rem;
-  }
+}
