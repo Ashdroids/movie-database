@@ -43,6 +43,7 @@ export default function MovieDetails({
   return (
     <main className={styles.container}>
       <Image
+      className={styles.poster}
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title}
         width={350}
