@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import styles from "./LoginForm.module.css";
 
 export default function LoginForm() {
   const supabase = createClient();
@@ -29,8 +30,8 @@ export default function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <div className={styles.field}>
         <label htmlFor="email">Email</label>
         <br />
         <input
@@ -44,7 +45,7 @@ export default function LoginForm() {
 
       <br />
 
-      <div>
+      <div className={styles.field}>
         <label htmlFor="password">Password</label>
         <br />
         <input
@@ -58,7 +59,9 @@ export default function LoginForm() {
 
       <br />
 
-      <button type="submit">Login</button>
+      <button type="submit" className={styles.loginButton}>
+        Login
+      </button>
     </form>
   );
 }
