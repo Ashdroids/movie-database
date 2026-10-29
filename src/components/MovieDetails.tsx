@@ -71,28 +71,34 @@ export default function MovieDetails({
           </>
         )}
 
-        <p>
-          <strong>Release:</strong> {movie.release_date}
-        </p>
+        <div className={styles.card}>
+          <p>
+            <strong>Release:</strong> {movie.release_date}
+          </p>
 
-        <p>
-          <strong>Runtime:</strong> {movie.runtime} minutes
-        </p>
+          <p>
+            <strong>Runtime:</strong> {movie.runtime} minutes
+          </p>
 
-        <p>
-          <strong>TMDB Rating:</strong> {movie.vote_average.toFixed(1)}/10
-        </p>
+          <p>
+            <strong>TMDB Rating:</strong> {movie.vote_average.toFixed(1)}/10
+          </p>
 
-        <p>
-          <strong>Genres:</strong>{" "}
-          {movie.genres.map((genre: Genre) => genre.name).join(", ")}
-        </p>
+          <p>
+            <strong>Genres:</strong>{" "}
+            {movie.genres.map((genre: Genre) => genre.name).join(", ")}
+          </p>
+        </div>
 
-        <h2>Overview</h2>
+        <div className={styles.card}>
+          <h2>Overview</h2>
 
-        <p>{movie.overview}</p>
+          <p>{movie.overview}</p>
+        </div>
 
-        <CastList cast={movie.credits.cast} />
+        <div className={styles.card}>
+          <CastList cast={movie.credits.cast} />
+        </div>
       </div>
     </main>
   );
