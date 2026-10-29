@@ -14,11 +14,22 @@
 
 .searchButton {
   padding: 0.75rem 1.5rem;
-  border: none;
+  background-color: #f5c518;
+  color: #171717;
+  border: 1px solid #f5c518;
   border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .searchButton:hover {
-  opacity: 0.8;
+  background-color: #e0b410;
+  border-color: #e0b410;
+  transform: translateY(-1px);
+}
+
+.searchButton:active {
+  transform: translateY(0);
 }
