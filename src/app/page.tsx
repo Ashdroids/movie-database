@@ -18,12 +18,21 @@ export default async function Home() {
 }));
 
   return (
-    <main> 
-      <h1>Movie Database</h1>
-      <p>Popular Movies:</p>
+    <main className={styles.page}> 
+      <section className={styles.intro}>
+        <h1>Discover Movies</h1>
+        <p>
+          Explore popular films, discover your next favourite,
+          and keep track of the movies you love.
+        </p>
+      </section>
 
-      <MovieGrid movies={movies} />
-      
+      <section className={styles.movies}>
+        <h2>Popular Movies</h2>
+        <div className={styles.gridWrapper}>
+          <MovieGrid movies={movies} />
+        </div>
+      </section>
     </main>
   );
 }
