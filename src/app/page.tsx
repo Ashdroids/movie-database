@@ -12,7 +12,9 @@ export default async function Home() {
   id: movie.id,
   title: movie.title,
   releaseYear: movie.release_date.slice(0, 4),
-  poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+  poster: movie.poster_path
+      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+      : "/placeholder.png",
 }));
 
   return (
