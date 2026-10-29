@@ -13,7 +13,7 @@ export default async function Navbar() {
   return (
     <nav className={styles.navbar}>
       <Link href="/" className={styles.logo}>
-        MovieDB
+        Movie<span className={styles.logoAccent}>DB</span>
       </Link>
 
       <ul className={styles.navLinks}>

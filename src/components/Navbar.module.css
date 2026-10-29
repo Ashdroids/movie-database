@@ -14,6 +14,10 @@
     font-weight: bold;
 }
 
+.logoAccent {
+  color: #f5c518;
+}
+
 .navLinks {
     display: flex;
     gap: 2rem;
